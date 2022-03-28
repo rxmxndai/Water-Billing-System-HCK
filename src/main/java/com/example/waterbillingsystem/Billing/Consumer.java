@@ -1,8 +1,8 @@
-package com.example.crud.user;
+package com.example.waterbillingsystem.Billing;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "consumers")
 
 public class Consumer {
 
@@ -10,41 +10,42 @@ public class Consumer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, unique = true, length = 40)
-    private String email;
-
     @Column(length=25, nullable = false, name = "Username")
     private String name;
+
+    @Column(nullable = false, unique = true, length = 40)
+    private String contacts;
 
     @Column(length=20, nullable = false)
     private String password;
 
+    @Column(length=40, nullable = false)
+    private String province;
+
     @Column(nullable = false)
     private boolean status;
 
-    public boolean isStatus() {
-        return status;
-    }
+    @Column (nullable = false)
+    private double unit;
 
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
+    @Column (nullable = false)
+    private double rate;
 
-    // GETTERS AND SETTERS
+    @Column (nullable = false)
+    private double tax;
+
+    @Column (nullable = false)
+    private double discount;
+
+
+
+    //----------------Getter and Setter--------------------------------------------
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getName() {
@@ -55,6 +56,14 @@ public class Consumer {
         this.name = name;
     }
 
+    public String getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(String contacts) {
+        this.contacts = contacts;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -63,13 +72,59 @@ public class Consumer {
         this.password = password;
     }
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public double getUnit() {
+        return unit;
+    }
+
+    public void setUnit(double unit) {
+        this.unit = unit;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
+
+    public double getTax() {
+        return tax;
+    }
+
+    public void setTax(double tax) {
+        this.tax = tax;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
+        return "Consumer{" +
                 "id=" + id +
-                ", email='" + email + '\'' +
                 ", name='" + name + '\'' +
+                ", contacts='" + contacts + '\'' +
                 ", password='" + password + '\'' +
+                ", province='" + province + '\'' +
+                ", status=" + status +
+                ", unit=" + unit +
+                ", rate=" + rate +
+                ", tax=" + tax +
+                ", discount=" + discount +
                 '}';
     }
 }
