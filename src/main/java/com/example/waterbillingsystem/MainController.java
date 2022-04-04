@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
 
 
+//    @GetMapping("")
+//    public String showLoginPage() {
+//        return "loginpage";
+//    }
+
     @GetMapping("")
-    public String showLoginPage() {
-        return "loginpage";
+    public String showDashboard() {
+        return "Dashboard";
     }
 
 
