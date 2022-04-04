@@ -16,24 +16,26 @@ import java.util.Optional;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(false)
 public class ConsumerRepositoryTest {
-    @Autowired
-    private ConsumerRepository repo;
+
+    @Autowired private ConsumerRepository repo;
+
 
     @Test
     public void testAddNewConsumer() {
-        Consumer consumer = new Consumer();
 
-        consumer.setName("Roman Karki");
-        consumer.setContacts("9816860874");
-        consumer.setPassword("Roman Karki");
-        consumer.setProvince("Kathmandu Kshetra");
-        consumer.setUnit(10);
-        consumer.setRate(100);
-        consumer.setDiscount(10);
-        consumer.setTax(13);
-        consumer.setStatus(true);
+        Consumer user = new Consumer();
+
+        user.setName("Reshika Bhandari");
+        user.setContacts("9876890654");
+        user.setPassword("Reshika Bhandari");
+        user.setProvince("Gandaki Kshetra");
+        user.setUnit(10);
+        user.setRate(100);
+        user.setDiscount(10);
+        user.setTax(13);
+        user.setStatus(true);
         // SAVE DETAILS
-        Consumer savedConsumer = repo.save(consumer);
+        Consumer savedConsumer = repo.save(user);
         // DATABASE
         Assertions.assertThat(savedConsumer).isNotNull();
         Assertions.assertThat(savedConsumer.getId()).isGreaterThan(0);
@@ -53,38 +55,38 @@ public class ConsumerRepositoryTest {
     }
 
 
-    // test method for updating user
-    @Test
-    public void testUpdateConsumer() {
-
-        Integer userId = 1;
-        Optional<Consumer> tempConsumer = repo.findById(userId);
-        Consumer consumer = tempConsumer.get();
-        consumer.setPassword("Roman Karki");
-        repo.save(consumer);
-
-        Consumer updatedConsumer = repo.findById(userId).get();
-        Assertions.assertThat(updatedConsumer.getPassword()).isEqualTo("Roman Karki");
-
-    }
-
-    @Test
-    public void testGetConsumer() {
-        Integer userId = 1;
-        Optional<Consumer> optionalConsumer = repo.findById(userId);
-
-        Assertions.assertThat(optionalConsumer).isPresent();
-        System.out.println(optionalConsumer.get());
-    }
-
-
-    @Test
-    public void testDeleteConsumer() {
-        Integer userId = 1;
-        repo.deleteById(userId);
-
-        Optional<Consumer> optionalConsumer = repo.findById(userId);
-        Assertions.assertThat(optionalConsumer).isNotPresent();
-    }
+//    // test method for updating user
+//    @Test
+//    public void testUpdateConsumer() {
+//
+//        Integer userId = 2;
+//        Optional<Consumer> tempConsumer = repo.findById(userId);
+//        Consumer consumer = tempConsumer.get();
+//        consumer.setPassword("Roman Karki");
+//        repo.save(consumer);
+//
+//        Consumer updatedConsumer = repo.findById(userId).get();
+//        Assertions.assertThat(updatedConsumer.getPassword()).isEqualTo("Roman Karki");
+//
+//    }
+//
+//    @Test
+//    public void testGetConsumer() {
+//        Integer userId = 2;
+//        Optional<Consumer> optionalConsumer = repo.findById(userId);
+//
+//        Assertions.assertThat(optionalConsumer).isPresent();
+//        System.out.println(optionalConsumer.get());
+//    }
+//
+//
+//    @Test
+//    public void testDeleteConsumer() {
+//        Integer userId = 2;
+//        repo.deleteById(userId);
+//
+//        Optional<Consumer> optionalConsumer = repo.findById(userId);
+//        Assertions.assertThat(optionalConsumer).isNotPresent();
+//    }
 
 }
