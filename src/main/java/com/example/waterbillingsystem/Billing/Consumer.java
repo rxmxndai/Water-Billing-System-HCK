@@ -10,8 +10,10 @@ public class Consumer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length=25, nullable = false, name = "Username")
+    @Column(length=25, nullable = false)
     private String name;
+
+
 
     @Column(nullable = false, unique = true, length = 40)
     private String contacts;
@@ -25,16 +27,12 @@ public class Consumer {
     @Column(nullable = false)
     private boolean status;
 
-    @Column (nullable = false)
     private double unit;
 
-    @Column (nullable = false)
     private double rate;
 
-    @Column (nullable = false)
     private double tax;
 
-    @Column (nullable = false)
     private double discount;
 
 
@@ -112,6 +110,18 @@ public class Consumer {
         this.discount = discount;
     }
 
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+
+
+
+
     @Override
     public String toString() {
         return "Consumer{" +
@@ -127,4 +137,5 @@ public class Consumer {
                 ", discount=" + discount +
                 '}';
     }
+
 }

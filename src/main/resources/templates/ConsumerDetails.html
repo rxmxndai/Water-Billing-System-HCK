@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> Manage Consumer Details </title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body >
+
+<div class="container-fluid text-center">
+    <h1> JalKali Water Supply </h1>
+    <div> <h2> Consumer Details </h2> </div>
+    <div class="m-4">
+        <a class = "h3" th:href="@{/users/new} "> Add new Consumer  </a>
+    </div>
+
+
+    <div>
+        <table  class = "table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th> Consumer ID </th>
+                <th> Name </th>
+                <th> Contacts </th>
+<!--                <th> unit </th>-->
+<!--                <th> rate </th>-->
+<!--                <th> discount </th>-->
+<!--                <th> tax </th>-->
+                <th> Province </th>
+                <th> Enabled </th>
+                <th> Manage Users </th>
+                <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <th:block th:each="consumer : ${consumerList} ">
+                <tr>
+                    <td> [[${consumer.id}]] </td>
+                    <td> [[${consumer.name}]] </td>
+                    <td> [[${consumer.contacts}]] </td>
+                    <td> [[${consumer.province}]] </td>
+                    <td> [[${consumer.status}]] </td>
+                    <td>
+                        <a class="h4 mr-4" th:href="@{'/users/edit/' + ${consumer.id}}"> Edit </a>
+                        <a class="h4" th:href="@{'/users/remove/' + ${consumer.id}}"> Remove </a>
+                    </td>
+                </tr>
+
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
