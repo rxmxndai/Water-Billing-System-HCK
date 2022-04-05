@@ -14,6 +14,10 @@
         <a class = "h3" th:href="@{/consumer/newform} "> Add new Consumer  </a>
     </div>
 
+    <div class="alert alert-success text-center" th:if="${message}">
+        [[${message}]]
+    </div>
+
 
     <div>
         <table  class = "table table-bordered">
@@ -41,8 +45,8 @@
                     <td> [[${consumer.province}]] </td>
                     <td> [[${consumer.status}]] </td>
                     <td>
-                        <a class="h4 mr-4" th:href="@{'/users/edit/' + ${consumer.id}}"> Edit </a>
-                        <a class="h4" th:href="@{'/users/remove/' + ${consumer.id}}"> Remove </a>
+                        <a class="h4 mr-4" th:href="@{'/consumer/edit/' + ${consumer.id}}"> Edit </a>
+                        <a class="h4" th:href="@{'/consumer/remove/' + ${consumer.id}}"> Remove </a>
                     </td>
                 </tr>
 
