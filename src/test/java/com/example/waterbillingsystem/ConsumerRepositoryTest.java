@@ -25,10 +25,10 @@ public class ConsumerRepositoryTest {
 
         Consumer user = new Consumer();
 
-        user.setName("Reshika Bhandari");
-        user.setContacts("9876890654");
-        user.setPassword("Reshika Bhandari");
-        user.setProvince("Gandaki Kshetra");
+        user.setName("Prashant Pandey");
+        user.setContacts("9876543456");
+        user.setPassword("Prashant Pandey");
+        user.setProvince("Arun Kshetra");
         user.setUnit(10);
         user.setRate(100);
         user.setDiscount(10);
