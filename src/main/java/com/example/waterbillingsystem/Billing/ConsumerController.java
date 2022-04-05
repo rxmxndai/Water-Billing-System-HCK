@@ -64,6 +64,7 @@ public class ConsumerController {
         try {
             Consumer consumer = service.get(id);
             model.addAttribute("consumer", consumer);
+            model.addAttribute("provinceList", provinceList);
             model.addAttribute("pageTitle", "Edit Consumer (ID: " + id + ")");
             return "consumerForm";
         } catch (ConsumerNotFoundException e) {
