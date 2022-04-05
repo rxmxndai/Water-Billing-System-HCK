@@ -31,10 +31,10 @@ public class ConsumerController {
 
     @PostMapping("/consumer/save")
 
-    public String saveConsumer (Consumer user, RedirectAttributes rr) {
-        service.save(user);
+    public String saveConsumer (Consumer consumer, RedirectAttributes rr) {
+        service.save(consumer);
 
         rr.addFlashAttribute("message", "User details saved Successfully");
-        return  "redirect:/consumers/details";
+        return  "redirect:/consumer/details";
     }
 }

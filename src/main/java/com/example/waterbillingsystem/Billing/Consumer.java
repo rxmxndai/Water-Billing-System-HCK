@@ -28,15 +28,17 @@ public class Consumer {
     @Column(nullable = false)
     private boolean status;
 
-    private double unit = 0;
+    @Column(nullable = true)
+    private double unit;
 
-    private double rate = 0;
+    @Column(nullable = true)
+    private double rate ;
 
-    private double tax = 0;
+    @Column(nullable = true)
+    private double tax;
 
-    private double discount = 0;
-
-
+    @Column(nullable = true)
+    private double discount;
 
     //----------------Getter and Setter--------------------------------------------
 
