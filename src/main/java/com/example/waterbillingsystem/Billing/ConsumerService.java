@@ -34,14 +34,14 @@ public class ConsumerService {
     }
 
 
-//    public void delete(Integer id) throws ConsumerNotFoundException {
-//
-//        Long count = repo.countById(id);
-//        if (count == 0 || count == null) {
-//            throw new ConsumerNotFoundException("Could not find user with ID: " + id);
-//        }
-//
-//        repo.deleteById(id);
-//    }
+    public void delete(Integer id) throws ConsumerNotFoundException {
+
+        Long count = repo.countById(id);
+        if (count == 0 || count == null) {
+            throw new ConsumerNotFoundException("Could not find user with ID: " + id);
+        }
+
+        repo.deleteById(id);
+    }
 
 }

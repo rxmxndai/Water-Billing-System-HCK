@@ -8,11 +8,27 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
 @Controller
 public class ConsumerController {
+
+    static ArrayList<String> provinceList = new ArrayList<String>();
+    static  {
+        provinceList.add("Kathmandu Kshetra");
+        provinceList.add("Arun Kshetra");
+        provinceList.add("Janakpur Kshetra");
+        provinceList.add("Gandak Kshetra");
+        provinceList.add("Karnali Kshetra");
+        provinceList.add("Kapilavastu Kshetra");
+        provinceList.add("Mahakali Kshetra");
+    }
+
+
+
     @Autowired private ConsumerService service;
 
     @GetMapping("/consumer/details")
@@ -27,7 +43,7 @@ public class ConsumerController {
     @GetMapping("/consumer/newform")
     public String showConsumerForm(Model model) {
         model.addAttribute("consumer", new Consumer());
-
+        model.addAttribute("provinceList", provinceList);
         model.addAttribute("pageTitle", "Add new Consumer Details");
         return "consumerForm";
     }
@@ -56,5 +72,20 @@ public class ConsumerController {
         }
 
     }
+
+
+    @GetMapping("/consumer/remove/{id}")
+    public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes rr) {
+
+        try {
+            service.delete(id);
+            rr.addFlashAttribute("message", "User id: " +  id + " Successfully Deleted");
+        } catch (ConsumerNotFoundException e) {
+            rr.addFlashAttribute("message", e.getMessage());
+        }
+
+        return  "redirect:/consumer/details";
+    }
+
 
 }
