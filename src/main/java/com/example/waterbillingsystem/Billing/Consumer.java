@@ -16,6 +16,9 @@ public class Consumer {
     @Column(nullable = false, unique = true, length = 40)
     private String contacts;
 
+    @Column(nullable = false, unique = true, length = 40)
+    private String email;
+
     @Column(length=20, nullable = false)
     private String password;
 
@@ -25,17 +28,13 @@ public class Consumer {
     @Column(nullable = false)
     private boolean status;
 
-    @Column(nullable = false)
-    private double unit;
+    private double unit = 0;
 
-    @Column(nullable = false)
-    private double rate;
+    private double rate = 0;
 
-    @Column(nullable = false)
-    private double tax;
+    private double tax = 0;
 
-    @Column(nullable = false)
-    private double discount;
+    private double discount = 0;
 
 
 
@@ -122,12 +121,18 @@ public class Consumer {
         this.discount = discount;
     }
 
+
+    public String getEmail() {
+        return email;
+    }
+
     @Override
     public String toString() {
         return "Consumer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", contacts='" + contacts + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", province='" + province + '\'' +
                 ", status=" + status +
@@ -137,5 +142,10 @@ public class Consumer {
                 ", discount=" + discount +
                 '}';
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 
 }

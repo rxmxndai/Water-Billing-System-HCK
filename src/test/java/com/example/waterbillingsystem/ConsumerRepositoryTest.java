@@ -25,15 +25,16 @@ public class ConsumerRepositoryTest {
 
         Consumer user = new Consumer();
 
-        user.setName("Prashant Pandey");
-        user.setContacts("9876543456");
-        user.setPassword("Prashant Pandey");
-        user.setProvince("Arun Kshetra");
+        user.setName("Anushriya Aryal");
+        user.setContacts("9865321458");
+        user.setEmail("anu322@gmail.com");
+        user.setPassword("Anushriya Aryal");
+        user.setProvince("Mahakali Kshetra");
         user.setUnit(10);
         user.setRate(100);
         user.setDiscount(10);
         user.setTax(13);
-        user.setStatus(true);
+        user.setStatus(false);
         // SAVE DETAILS
         Consumer savedConsumer = repo.save(user);
         // DATABASE

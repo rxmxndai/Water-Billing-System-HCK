@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-
 
 
 @Service
@@ -20,8 +18,10 @@ public class ConsumerService {
 
     }
 
-    public void save(Consumer user) {
+    public void save (Consumer user) {
+
         repo.save(user);
+
     }
 
 //    public Consumer get(Integer id) throws ConsumerNotFoundException{

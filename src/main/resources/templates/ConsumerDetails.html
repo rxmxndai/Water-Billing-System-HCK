@@ -11,7 +11,7 @@
     <h1> JalKali Water Supply </h1>
     <div> <h2> Consumer Details </h2> </div>
     <div class="m-4">
-        <a class = "h3" th:href="@{/users/new} "> Add new Consumer  </a>
+        <a class = "h3" th:href="@{/consumer/newform} "> Add new Consumer  </a>
     </div>
 
 
@@ -22,12 +22,9 @@
                 <th> Consumer ID </th>
                 <th> Name </th>
                 <th> Contacts </th>
-<!--                <th> unit </th>-->
-<!--                <th> rate </th>-->
-<!--                <th> discount </th>-->
-<!--                <th> tax </th>-->
+                <th> Email </th>
                 <th> Province </th>
-                <th> Enabled </th>
+                <th> Service Enabled </th>
                 <th> Manage Users </th>
                 <th></th>
             </tr>
@@ -40,6 +37,7 @@
                     <td> [[${consumer.id}]] </td>
                     <td> [[${consumer.name}]] </td>
                     <td> [[${consumer.contacts}]] </td>
+                    <td> [[${consumer.email}]] </td>
                     <td> [[${consumer.province}]] </td>
                     <td> [[${consumer.status}]] </td>
                     <td>
