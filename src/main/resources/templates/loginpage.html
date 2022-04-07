@@ -8,7 +8,24 @@
 <h1>Welcome to Water Billing System</h1>
 <h2>Login Form</h2>
 <form th:action="@{/login}" th:object="${loginForm}" method="post">
+    <div class="container">
+
+<!--        <div class="logo1">  <img src="../static/image/echllan1.png" th:src="@{image/echallan1.png}"/> </div>&lt;!&ndash;&#45;&#45;insert image in html&#45;&#45;&ndash;&gt;-->
+
+        <div class="project1"> Water Billing System</div>
+
+        <form method="post"><!------form created--->
+
+            <div class="f-field"> <span class="far "></span> <input type="text" name="userName" id="user_Name" placeholder="Username"> </div>
+
+            <div class="f-field"> <span class="fas "></span> <input type="password" name="password" id="pwd1" placeholder="Password"></div>
+
+            <button class="bttn1">Login</button>
+        </form>
+
+    </div>
+
 
 </form>
 </body>
-</html>s
+</html>
