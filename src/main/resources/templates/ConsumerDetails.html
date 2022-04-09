@@ -46,7 +46,8 @@
                     <td> [[${consumer.status}]] </td>
                     <td>
                         <a class="h4 mr-4" th:href="@{'/consumer/edit/' + ${consumer.id}}"> Edit </a>
-                        <a class="h4" th:href="@{'/consumer/remove/' + ${consumer.id}}"> Remove </a>
+                        <a class="h4 mr-4" th:href="@{'/consumer/remove/' + ${consumer.id}}"> Remove </a>
+                        <a class="h4 mr-4" th:href="@{'/consumer/billing/' + ${consumer.id}}"> Billing </a>
                     </td>
                 </tr>
 
