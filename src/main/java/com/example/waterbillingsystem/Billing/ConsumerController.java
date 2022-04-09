@@ -74,6 +74,20 @@ public class ConsumerController {
 
     }
 
+    @GetMapping("/consumer/billing/{id}")
+    public String showEditBillinghForm(@PathVariable("id") Integer id, Model model, RedirectAttributes rr) {
+        try {
+            Consumer consumer = service.get(id);
+            model.addAttribute("consumer", consumer);
+            model.addAttribute("pageTitle", "Edit Consumer (ID: " + id + ")");
+            return "billingForm";
+        } catch (ConsumerNotFoundException e) {
+            rr.addFlashAttribute("message", e.getMessage());
+            return "redirect:/consumer/details";
+        }
+
+    }
+
 
     @GetMapping("/consumer/remove/{id}")
     public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes rr) {
