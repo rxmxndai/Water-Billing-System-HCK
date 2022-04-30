@@ -5,12 +5,15 @@
   <title>Water Billing System</title>
   <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
-<body class="container-fluid text-center">
-<h1> Admin Dashboard</h1>
-<h1> Welcome to JalKali water supply </h1>
-<div class = "container p-5 m-10">
-  <a class = " h1 text-center p-3 mb-2 bg-primary text-white border border-secondary rounded p-3" th:href="@{/consumer/details} "> Manage Consumers Details </a>
+<body class="bg-success">
+<div class="container-fluid text-center">
+<h1 class="m-3"> <mark class="border rounded">Admin Dashboard</mark></h1>
+<h1 class="m-4"> Welcome to JalKali water supply </h1>
+<div class = " p-5 m-8">
+  <a class = " h1 text-center p-3 mb-2 text-white border border-secondary rounded p-3 bg-primary btn-lg" th:href="@{/consumer/details} "> Manage Consumers Details </a>
 </div>
-
+  <label class="m-2 font-weight-bold">Enter a consumer name to get info</label>
+  <input type="text" class="form-control col-sm-2 " required minlength="5" maxlength="25"/>
+</div>
 </body>
 </html>
