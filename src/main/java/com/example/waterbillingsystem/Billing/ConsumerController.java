@@ -59,14 +59,13 @@ public class ConsumerController {
         return  "redirect:/consumer/details";
     }
 
-    @GetMapping("/consumer/edit/{id}")
+    @GetMapping("/consumer/viewIndividualDetail/{id}")
     public String showEditConsumerForm(@PathVariable("id") Integer id, Model model, RedirectAttributes rr) {
         try {
             Consumer consumer = service.get(id);
             model.addAttribute("consumer", consumer);
-            model.addAttribute("provinceList", provinceList);
             model.addAttribute("pageTitle", "Edit Consumer (ID: " + id + ")");
-            return "consumerForm";
+            return "ConsumerDetailsIndividual";
         } catch (ConsumerNotFoundException e) {
             rr.addFlashAttribute("message", e.getMessage());
             return "redirect:/consumer/details";
@@ -79,6 +78,7 @@ public class ConsumerController {
         try {
             Consumer consumer = service.get(id);
             model.addAttribute("consumer", consumer);
+            model.addAttribute("provinceList", provinceList);
             model.addAttribute("pageTitle", "Edit Consumer (ID: " + id + ")");
             return "billingForm";
         } catch (ConsumerNotFoundException e) {

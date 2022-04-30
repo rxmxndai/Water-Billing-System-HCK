@@ -10,8 +10,9 @@
 <div class="container-fluid text-center">
     <h1> JalKali Water Supply </h1>
     <div> <h2> Consumer Details </h2> </div>
-    <div class="m-4">
-        <a class = "h3" th:href="@{/consumer/newform} "> Add new Consumer  </a>
+
+    <div class = "container p-5 m-10">
+        <a class = " h1 text-center p-3 mb-2 bg-primary text-white border border-secondary rounded p-3" th:href="@{/consumer/newform} "> Add new Consumer  + </a>
     </div>
 
     <div class="alert alert-success text-center" th:if="${message}">
@@ -45,9 +46,9 @@
                     <td> [[${consumer.province}]] </td>
                     <td> [[${consumer.status}]] </td>
                     <td>
-                        <a class="h4 mr-4" th:href="@{'/consumer/edit/' + ${consumer.id}}"> Edit </a>
-                        <a class="h4 mr-4" th:href="@{'/consumer/remove/' + ${consumer.id}}"> Remove </a>
-                        <a class="h4 mr-4" th:href="@{'/consumer/billing/' + ${consumer.id}}"> Billing </a>
+                        <a class="h4 mr-4 text-center  p-0.5  bg-danger text-white border border-secondary rounded " th:href="@{'/consumer/remove/' + ${consumer.id}}"> Remove </a>
+                        <a class="h4 mr-4 text-center  p-0.5 bg-success text-white border border-secondary rounded "  th:href="@{'/consumer/billing/' + ${consumer.id}}"> Billing </a>
+                        <a class="h4 mr-4 text-center p-1 mb-2 bg-primary text-white border border-secondary rounded " th:href="@{'/consumer/ConsumerDetailsIndividual/' + ${consumer.id}}"> View Info </a>
                     </td>
                 </tr>
 

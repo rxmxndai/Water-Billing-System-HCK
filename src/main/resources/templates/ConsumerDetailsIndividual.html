@@ -14,7 +14,10 @@
 <body>
 <div class="container-fluid ">
     <h1 class="text-center"> JalKali Water Supply </h1>
-    <div class="text-center m-4"><h2> [[${pageTitle}]] </h2> </div>
+    <div class = "container">
+        <div class="text-center text-white  bg-dark m-4"> [[${pageTitle </div>
+    </div>
+
 
 
     <form th:action="@{/consumer/save}" method="post" th:object="${consumer}"
@@ -60,7 +63,7 @@
                 <div class= "col-sm-8">
                     <select name="Province">
                         <option th:each= "province : ${provinceList}"
-                        th:text="${province}"></option>
+                                th:text="${province}"></option>
                     </select>
                 </div>
             </div>
