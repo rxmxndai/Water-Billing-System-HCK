@@ -7,13 +7,32 @@
 </head>
 <body >
 
-<div class="container-fluid text-center">
-    <h1> JalKali Water Supply </h1>
-    <div> <h2> Consumer Details </h2> </div>
 
-    <div class = "container p-5 m-10">
-        <a class = " h1 text-center p-3 mb-2 bg-primary text-white border border-secondary rounded p-3" th:href="@{/consumer/newform} "> Add new Consumer  + </a>
+<!--Navigation-->
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/admin/dash}"> Home </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Billing </a>
+            </li>
+            <li class="nav-item">
+                <a class="navbar-brand" th:href="@{/consumer/details}"> Consumers </a>
+            </li>
+        </ul>
     </div>
+</nav>
+
+<!--&lt;!&ndash;    Add consumer link &ndash;&gt;-->
+<!--    <div class = "container p-5 m-2">-->
+<!--        <a class = " h1 text-center p-3 mb-2 bg-primary text-white border border-secondary rounded p-3"-->
+<!--           th:href="@{/consumer/newform} "> Add new Consumer  + </a>-->
+<!--    </div>-->
 
     <div class="alert alert-success text-center" th:if="${message}">
         [[${message}]]
@@ -48,7 +67,7 @@
                     <td>
                         <a class="h4 mr-4 text-center  p-0.5  bg-danger text-white border border-secondary rounded " th:href="@{'/consumer/remove/' + ${consumer.id}}"> Remove </a>
                         <a class="h4 mr-4 text-center  p-0.5 bg-success text-white border border-secondary rounded "  th:href="@{'/consumer/billing/' + ${consumer.id}}"> Billing </a>
-                        <a class="h4 mr-4 text-center p-1 mb-2 bg-primary text-white border border-secondary rounded " th:href="@{'/consumer/ConsumerDetailsIndividual/' + ${consumer.id}}"> View Info </a>
+                        <a class="h4 mr-4 text-center p-1 mb-2 bg-primary text-white border border-secondary rounded " th:href="@{'/consumer/viewIndividualDetail/' + ${consumer.id}}"> View Info </a>
                     </td>
                 </tr>
 

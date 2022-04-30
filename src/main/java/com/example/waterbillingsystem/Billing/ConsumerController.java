@@ -27,6 +27,10 @@ public class ConsumerController {
         provinceList.add("Mahakali Kshetra");
     }
 
+    @GetMapping("/admin/dash")
+    public String showDashboard() {
+        return "Dashboard";
+    }
 
 
     @Autowired private ConsumerService service;
@@ -64,7 +68,6 @@ public class ConsumerController {
         try {
             Consumer consumer = service.get(id);
             model.addAttribute("consumer", consumer);
-            model.addAttribute("pageTitle", "Edit Consumer (ID: " + id + ")");
             return "ConsumerDetailsIndividual";
         } catch (ConsumerNotFoundException e) {
             rr.addFlashAttribute("message", e.getMessage());
@@ -72,6 +75,7 @@ public class ConsumerController {
         }
 
     }
+
 
     @GetMapping("/consumer/billing/{id}")
     public String showEditBillinghForm(@PathVariable("id") Integer id, Model model, RedirectAttributes rr) {
@@ -101,6 +105,8 @@ public class ConsumerController {
 
         return  "redirect:/consumer/details";
     }
+
+
 
 
 }

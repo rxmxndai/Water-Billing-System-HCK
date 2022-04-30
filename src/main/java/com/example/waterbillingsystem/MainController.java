@@ -9,10 +9,7 @@ public class MainController {
 
 //    Default html redirection on web app start
 
-    @GetMapping
-    public String showDashboard() {
-        return "Dashboard";
-    }
+
 
 
 
