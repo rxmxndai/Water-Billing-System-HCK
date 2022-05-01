@@ -25,15 +25,6 @@ public class ConsumerService {
 
     }
 
-    public Consumer getinfo(Integer id) throws ConsumerNotFoundException {
-        Optional<Consumer> result = repo.findById(id);
-        if (result.isPresent()) {
-            return result.get();
-        }
-        throw new ConsumerNotFoundException("Could not find users with ID " + id);
-    }
-
-
     public Consumer get(Integer id) throws ConsumerNotFoundException {
         Optional<Consumer> result = repo.findById(id);
         if (result.isPresent()) {
