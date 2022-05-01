@@ -19,7 +19,7 @@
                 <a class="nav-link" th:href="@{/admin/dash}"> Home </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"> Billing </a>
+                <a class="nav-link" th:href="@{/consumer/printbill}"> Billing </a>
             </li>
             <li class="nav-item">
                 <a class="navbar-brand" th:href="@{/consumer/details}"> Consumers </a>
@@ -28,11 +28,27 @@
     </div>
 </nav>
 
-<!--&lt;!&ndash;    Add consumer link &ndash;&gt;-->
-<!--    <div class = "container p-5 m-2">-->
-<!--        <a class = " h1 text-center p-3 mb-2 bg-primary text-white border border-secondary rounded p-3"-->
-<!--           th:href="@{/consumer/newform} "> Add new Consumer  + </a>-->
-<!--    </div>-->
+
+
+<!--Search Button-->
+
+<h2> Search consumer name </h2>
+<form class="form-inline" th:href="@{'/search'}">
+    <input type="text" name="keyword" id="keyword"  size="50" placeholder="Search for consumer"
+           required />
+    &nbsp
+    <input class="form-control mr-sm-2 btn btn-success" type="submit" value="Search" >
+    &nbsp
+    <input type="button" value="clear" id="btnClear"
+           onclick="clearSearch()" />
+</form>
+
+
+
+
+
+
+
 
     <div class="alert alert-success text-center" th:if="${message}">
         [[${message}]]
