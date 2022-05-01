@@ -35,7 +35,7 @@ public class ConsumerController {
     @PostMapping("/search")
     public String doSearch(@ModelAttribute("keyword") Consumer consumerdata, Model model) throws ConsumerNotFoundException {
 
-        Consumer consumer = service.getinfo(consumerdata.getId());
+        Consumer consumer = service.get(consumerdata.getId());
         model.addAttribute("consumer", consumer);
         return "Dashboard";
     }
