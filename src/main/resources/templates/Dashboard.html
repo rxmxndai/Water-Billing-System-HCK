@@ -31,15 +31,15 @@
   <!--    Add consumer link -->
   <div class = "container p-5 m-2">
     <a class = " h1 text-center p-3 mb-2 bg-primary text-white border border-secondary rounded p-3"
-       th:href="@{/consumer/newform} "> Add new Consumer  + </a>
+       th:href="@{/consumer/newform} "style="margin-left: 500px;"> Add new Consumer  + </a>
   </div>
 
 
 
 <!--    Search Button-->
 
-    <h2> Search consumer name </h2>
-    <form class="form-inline" action="#" th:action="@{/search}" th:object="${consumer}" method="post">
+    <h2 style="margin-left: 600px"> Search consumer name </h2>
+    <form class="form-inline" action="#" th:action="@{/search}" th:object="${consumer}" method="post" style="margin-left: 600px">
       <input th:field="*{id}" type="text"  placeholder="Search Consumer ID"/>
       &nbsp
       <button class="form-control mr-sm-2 btn btn-success" type="submit">Search</button> </td>
@@ -74,7 +74,7 @@
 
 
   <form th:object="${consumer}"
-        style="max-width: 400px; margin:0 auto;">
+        style="max-width: 400px; margin:0 auto;margin-top: 40px">
 
     <div class="border border-secondary rounded p-3">
       <div class="form-group row">
