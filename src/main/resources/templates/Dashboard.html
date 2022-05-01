@@ -8,7 +8,7 @@
 
 
 
-<body>
+<body style="background: url('https://images.unsplash.com/photo-1488188840666-e2308741a62f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80');background-size: cover">
 
   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
@@ -31,15 +31,15 @@
   <!--    Add consumer link -->
   <div class = "container p-5 m-2">
     <a class = " h1 text-center p-3 mb-2 bg-primary text-white border border-secondary rounded p-3"
-       th:href="@{/consumer/newform} "> Add new Consumer  + </a>
+       th:href="@{/consumer/newform} "style="margin-left: 500px;"> Add new Consumer  + </a>
   </div>
 
 
 
 <!--    Search Button-->
 
-    <h2> Search consumer name </h2>
-    <form class="form-inline" action="#" th:action="@{/search}" th:object="${consumer}" method="post">
+    <h2 style="margin-left: 600px"> Search consumer name </h2>
+    <form class="form-inline" action="#" th:action="@{/search}" th:object="${consumer}" method="post" style="margin-left: 600px">
       <input th:field="*{id}" type="text"  placeholder="Search Consumer ID"/>
       &nbsp
       <button class="form-control mr-sm-2 btn btn-success" type="submit">Search</button> </td>
@@ -54,19 +54,19 @@
 
 
   <form th:object="${consumer}"
-        style="max-width: 400px; margin:0 auto;">
+        style="max-width: 400px; margin:0 auto;margin-top: 40px">
 
-    <div class="border border-secondary rounded p-3">
+    <div>
       <div class="form-group row">
-        <label class="col-sm-4 col-form-label"> Name: </label>
+        <label class="col-sm-4 col-form-label"style="font-weight: bolder; font-size: 30px"> Name: </label>
         <div class= "col-sm-8">
-          <input readonly type="text" th:field="${consumer.name}"  class="form-control" required minlength="5" maxlength="45"/>
+          <input readonly type="text" th:field="${consumer.name}"  class="form-control" required minlength="5" maxlength="45"style="margin-top: 10px"/>
         </div>
       </div>
 
     </div>
   </form>
-
+<h1 style="margin-left: 420px;margin-top: 20px; font-size: 80px;">Save Water Save Life</h1>
 
 
 
