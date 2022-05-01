@@ -21,36 +21,36 @@
 
 
     <form th:action="@{/consumer/save}" method="post" th:object="${consumer}"
-          style="max-width: 400px; margin:0 auto;">
+          style="max-width: 400px; margin-left: 100px;margin-top: 100px;">
 
 
-        <div class="border border-secondary rounded p-3">
+        <div class="border border-secondary rounded p-3 ">
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Name: </label>
                 <div class= "col-sm-8">
-                    <label type="text" th:field="*{name}"  class="form-control" >[[${consumer.name}]]</label>
+                    <label th:field="*{name}"  class="form-control" >[[${consumer.name}]]</label>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Contacts: </label>
                 <div class= "col-sm-8">
-                    <label type="text" th:field="*{contacts}" class="form-control">[[${consumer.contacts}]]</label>
+                    <label  th:field="*{contacts}" class="form-control">[[${consumer.contacts}]]</label>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Email: </label>
                 <div class= "col-sm-8">
-                    <label type="email" th:field="*{email}" class="form-control">[[${consumer.email}]]</label>
+                    <label  th:field="*{email}" class="form-control">[[${consumer.email}]]</label>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Province: </label>
                 <div class= "col-sm-8">
-                    <label type="text" th:field="*{province}" class="form-control">[[${consumer.province}]]</label>
+                    <label  th:field="*{province}" class="form-control">[[${consumer.province}]]</label>
                 </div>
             </div>
 
@@ -67,6 +67,50 @@
                 <button type="button" class="btn btn-secondary m-2" onclick = "cancelForm()"> Back </button>
             </div>
         </div>
+    </form>
+    <form th:action="@{/consumer/billing/{id}}" method="post" th:object="${consumer}"
+          style="max-width: 400px;margin-left: auto;margin-top: -350px">
+        <div class="border border-secondary rounded p-3 ">
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label"> Name: </label>
+                <div class= "col-sm-8">
+                    <label th:field="*{name}"  class="form-control" >[[${consumer.name}]]</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label"> Unit: </label>
+                <div class= "col-sm-8">
+                    <label th:field="*{unit}"  class="form-control" >[[${consumer.unit}]]</label>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label"> Rate: </label>
+                <div class= "col-sm-8">
+                    <label th:field="*{rate}"  class="form-control" >[[${consumer.rate}]]</label>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label"> Tax: </label>
+                <div class= "col-sm-8">
+                    <label th:field="*{tax}"  class="form-control" >[[${consumer.tax}]]</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label"> Discount: </label>
+                <div class= "col-sm-8">
+                    <label th:field="*{discount}"  class="form-control" >[[${consumer.discount}]]</label>
+                </div>
+            </div>
+
+
+        </div>
+
     </form>
 </div>
 
