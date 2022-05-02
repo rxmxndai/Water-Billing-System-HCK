@@ -19,9 +19,19 @@ public class ConsumerService {
     }
 
 
-    public void save(Consumer user) {
+    public void save(Consumer consumer) {
 
-        repo.save(user);
+        double x, unit, rate, discount, tax;
+        unit = consumer.getUnit();
+        rate = consumer.getRate();
+        discount = consumer.getDiscount();
+        tax = (consumer.getTax() * (unit * rate) ) / 100;
+
+        x = (unit*rate) - discount + tax;
+
+        consumer.setTotal(x);
+
+        repo.save(consumer);
 
     }
 
@@ -30,7 +40,7 @@ public class ConsumerService {
         if (result.isPresent()) {
             return result.get();
         }
-        throw new ConsumerNotFoundException("Could not find users with ID " + id);
+        throw new ConsumerNotFoundException("Could not find consumer with ID " + id);
     }
 
 

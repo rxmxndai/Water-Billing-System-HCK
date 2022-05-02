@@ -5,12 +5,12 @@
     <title> Manage Consumer Details </title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
-<body >
+<body class="bg-info text-light">
 
 
 <!--Navigation-->
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark h5">
 
     <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -19,7 +19,7 @@
                 <a class="nav-link" th:href="@{/admin/dash}"> Home </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/consumer/printbill}"> Billing </a>
+                <a class="nav-link" th:href="@{/consumer/billingdetails}"> Billing </a>
             </li>
             <li class="nav-item">
                 <a class="navbar-brand" th:href="@{/consumer/details}"> Consumers </a>
@@ -29,14 +29,14 @@
 </nav>
 
 
+<h1 class="text-light p-2"> Consumer Details Management </h1>
 
+<div class="alert alert-warning text-center h3" th:if="${message}">
+    [[${message}]]
+</div>
 
+<!--details table-->
 
-
-
-    <div class="alert alert-success text-center" th:if="${message}">
-        [[${message}]]
-    </div>
 
 
     <div>
@@ -54,7 +54,7 @@
             </tr>
             </thead>
 
-            <tbody>
+            <tbody class="bg-light">
 
             <th:block th:each="consumer : ${consumerList} ">
                 <tr>
@@ -65,10 +65,9 @@
                     <td> [[${consumer.province}]] </td>
                     <td> [[${consumer.status}]] </td>
                     <td>
-                        <a class="h4 mr-4 text-center  p-0.5  bg-danger text-white border border-secondary rounded " th:href="@{'/consumer/remove/' + ${consumer.id}}"> Remove </a>
-                        <a class="h4 mr-4 text-center  p-0.5 bg-success text-white border border-secondary rounded "  th:href="@{'/consumer/billing/' + ${consumer.id}}"> Billing </a>
                         <a class="h4 mr-4 text-center p-1 mb-2 bg-primary text-white border border-secondary rounded " th:href="@{'/consumer/viewIndividualDetail/' + ${consumer.id}}"> View Info </a>
-                    </td>
+                        <a class="h4 mr-4 text-center  p-0.5  bg-danger text-white border border-secondary rounded " th:href="@{'/consumer/remove/' + ${consumer.id}}"> Remove </a>
+                       </td>
                 </tr>
 
             </th:block>

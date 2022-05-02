@@ -29,11 +29,28 @@ public class Consumer {
     private double tax;
     @Column(nullable = true)
     private double discount;
+    @Column(nullable = true)
+    private double total;
+
+//     = (unit * rate) + tax - discount
+
+
+    public double calculateTotal() {
+       return (unit*rate) + tax + discount;
+    }
 
 
 
 //----------------Getter and Setter--------------------------------------------
 
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
 
     public Integer getId() {
         return id;
@@ -102,6 +119,7 @@ public class Consumer {
     public void setEmail(String email) {
         this.email = email;
     }
+
     @Override
     public String toString() {
         return "Consumer{" +
@@ -116,8 +134,7 @@ public class Consumer {
                 ", rate=" + rate +
                 ", tax=" + tax +
                 ", discount=" + discount +
+                ", total=" + total +
                 '}';
     }
-
-
 }
