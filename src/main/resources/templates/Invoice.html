@@ -5,16 +5,117 @@
   <title> Manage Consumer Details </title>
   <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
-<body class="bg-info">
+<body class="bg-info" style="position: absolute">
+<form th:action="@{/consumer/save}" method="post" th:object="${consumer}">
 
-<div class="my-5 page" size="A4">
-  <div class="p-5 bg-secondary text-light">
+<div style="height: 100%; width: 100%; margin-left: 300px;" height="100%" width="100%" >
+  <table bgcolor="#f6f6f6" cellspacing="0" style="border-collapse: collapse; padding: 40px; width: 100%;" width="100%" >
+    <tbody>
+    <tr>
+      <td width="5px" style="padding: 0;"></td>
+      <td style="clear: both; display: block; margin: 0 auto; max-width: 600px; padding: 10px 0;">
+        <table width="100%" cellspacing="0" style="border-collapse: collapse;">
+          <tbody>
+          <tr>
+            <td style="padding: 0;">
 
+                <h1 >Jalkai Water Supply</h1>
+            </td>
+            <td style="color: #999; font-size: 12px; padding: 0; text-align: right;" align="right">
+             <br />
+              Invoice #12345<br />
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+      <td width="5px" style="padding: 0;"></td>
+    </tr>
 
-
+    <tr>
+      <td width="5px" style="padding: 0;"></td>
+      <td bgcolor="#FFFFFF" style="border: 1px solid #000; clear: both; display: block; margin: 0 auto; max-width: 600px; padding: 0;">
+        <table width="100%" style="background: #f9f9f9; border-bottom: 1px solid #eee; border-collapse: collapse; color: #999;">
+          <tbody>
+          <tr>
+            <td width="50%" style="padding: 20px;"><label th:field="*{total}" style="color: #333; font-size: 24px; ">Rs.[[${consumer.total}]]</label></td>
+            <td align="right" width="50%" style="padding: 20px;">Thank You</td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+      <td style="padding: 0;"></td>
+      <td width="5px" style="padding: 0;"></td>
+    </tr>
+    <tr>
+      <td width="5px" style="padding: 0;"></td>
+      <td style="border: 1px solid #000; border-top: 0; clear: both; display: block; margin: 0 auto; max-width: 600px; padding: 0;">
+        <table cellspacing="0" style="border-collapse: collapse; border-left: 1px solid #000; margin: 0 auto; max-width: 600px;">
+          <tbody>
+          <tr>
+            <td valign="top"  style="padding: 20px;">
+              <h3
+                      style="
+                                            border-bottom: 1px solid #000;
+                                            color: #000;
+                                            font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+                                            font-size: 18px;
+                                            font-weight: bold;
+                                            line-height: 1.2;
+                                            margin: 0;
+                                            margin-bottom: 15px;
+                                            padding-bottom: 5px;
+                                        "
+              >
+                Summary
+              </h3>
+              <table cellspacing="0" style="border-collapse: collapse; margin-bottom: 40px;">
+                <tbody>
+                <tr>
+                  <td style="padding: 5px 0;">Unit </td>
+                  <td align="right" style="padding: 5px 0;" th:field="*{unit}">[[${consumer.unit}]]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 5px 0;">Rate</td>
+                  <td align="right" style="padding: 5px 0;" th:field="*{rate}">[[${consumer.rate}]]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 5px 0;">Tax</td>
+                  <td align="right" style="padding: 5px 0;" th:field="*{tax}">[[${consumer.tax}]]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 5px 0;">Discount</td>
+                  <td align="right" style="padding: 5px 0;" th:field="*{discount}">[[${consumer.discount}]]</td>
+                </tr>
+                <tr>
+                  <td style="border-bottom: 2px solid #000; border-top: 2px solid #000; font-weight: bold; padding: 5px 0;">Total</td>
+                  <td align="right" style="border-bottom: 2px solid #000; border-top: 2px solid #000; font-weight: bold; padding: 5px 0;" th:field="*{total}">[[${consumer.total}]]</td>
+                </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+      <td width="5px" style="padding: 0;"></td>
+    </tr>
+  </table>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary m-2" > Print </button>
+    <button type="button" class="btn btn-secondary m-2" onclick = "cancelForm()"> Back </button>
   </div>
 </div>
+</form>
+<script type="text/javascript">
+  function cancelForm() {
+    window.location = "[[@{/consumer/billingdetails}]]";
+  }
 
+  function checkForm() {
 
+  }
+
+</script>
 </body>
 </html>
