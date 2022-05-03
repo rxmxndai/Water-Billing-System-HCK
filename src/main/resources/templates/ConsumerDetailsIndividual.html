@@ -14,6 +14,7 @@
 <body class="bg-info">
 <div class="container-fluid ">
     <h1 class="text-center text-light"> JalKali Water Supply </h1>
+    <h2 class="text-center text-light"> View Information </h2>
     <div class = "container">
         <div class="text-center text-white  bg-dark m-4"> [[${pageTitle}]] </div>
     </div>
@@ -23,7 +24,7 @@
 <!--    personal info details form-->
 
     <form class="text-light bg-secondary" th:action="@{/consumer/save}" method="post" th:object="${consumer}"
-          style="max-width: 400px; margin-left: 100px;margin-top: 100px;">
+          style="max-width: 800px; margin-left: 350px;margin-top: 0px;">
 
 
         <div class="border border-secondary rounded p-3 ">
@@ -31,28 +32,28 @@
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Name </label>
                 <div class= "col-sm-8">
-                    <label th:field="*{name}"  class="form-control" >[[${consumer.name}]]</label>
+                    <input th:field="*{name}"  class="form-control" >
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Contacts </label>
                 <div class= "col-sm-8">
-                    <label  th:field="*{contacts}" class="form-control">[[${consumer.contacts}]]</label>
+                    <input  th:field="*{contacts}" class="form-control">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Email </label>
                 <div class= "col-sm-8">
-                    <label  th:field="*{email}" class="form-control">[[${consumer.email}]]</label>
+                    <input  th:field="*{email}" class="form-control">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Province </label>
                 <div class= "col-sm-8">
-                    <label  th:field="*{province}" class="form-control">[[${consumer.province}]]</label>
+                    <input  th:field="*{province}" class="form-control">
                 </div>
             </div>
 
@@ -60,7 +61,7 @@
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Unit </label>
                 <div class= "col-sm-8">
-                    <label th:field="*{unit}"  class="form-control" >[[${consumer.unit}]]</label>
+                    <input th:field="*{unit}"  class="form-control" >
                 </div>
             </div>
 
@@ -68,7 +69,7 @@
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Rate </label>
                 <div class= "col-sm-8">
-                    <label th:field="*{rate}"  class="form-control" >[[${consumer.rate}]]</label>
+                    <input th:field="*{rate}"  class="form-control" >
                 </div>
             </div>
 
@@ -76,21 +77,21 @@
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Tax: </label>
                 <div class= "col-sm-8">
-                    <label th:field="*{tax}"  class="form-control" >[[${consumer.tax}]]</label>
+                    <input th:field="*{tax}"  class="form-control" >
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Discount </label>
                 <div class= "col-sm-8">
-                    <label th:field="*{discount}"  class="form-control" >[[${consumer.discount}]]</label>
+                    <input th:field="*{discount}"  class="form-control" >
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"> Total Payable </label>
                 <div class= "col-sm-8">
-                    <label th:field="*{total}"  class="form-control" >[[${consumer.total}]]</label>
+                    <input th:field="*{total}"  class="form-control" >
                 </div>
             </div>
 
