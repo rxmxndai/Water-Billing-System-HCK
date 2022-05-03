@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> Manage Consumer Details </title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body class="bg-info">
+
+
+<!--Navigation-->
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark h5">
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/admin/dash}"> Home </a>
+            </li>
+            <li class="nav-item">
+                <a class="navbar-brand" th:href="@{/consumer/billingdetails}"> Billing </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/consumer/details}"> Consumers </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+<h1 class="text-light"> Billing Management </h1>
+
+<div class="alert alert-success text-center h3" th:if="${message}">
+    [[${message}]]
+</div>
+
+
+<!--table-->
+
+<div >
+    <table  class = "table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th> Consumer ID </th>
+            <th> Name </th>
+            <th> Province </th>
+            <th> Amount Payable </th>
+            <th> Manage Users </th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody class="bg-white">
+
+        <th:block th:each="consumer : ${consumerList} ">
+            <tr>
+                <td>  [[${consumer.id}]] </td>
+                <td>  [[${consumer.name}]] </td>
+                <td>  [[${consumer.province}]] </td>
+                <td>  Rs  [[${consumer.total}]] </td>
+                <td >
+                    <a class="h4 mr-4 text-center  p-1 bg-success text-white border border-secondary rounded "
+                       th:href="@{'/consumer/billing/' + ${consumer.id}}"> Edit Bill </a>
+                    <a class="h4 mr-4 text-center  p-1 bg-primary text-white border
+                    border-secondary rounded "
+                       th:href="@{'/consumer/invoice/' + ${consumer.id}}"> Invoice </a>
+                </td>
+            </tr>
+
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</div>
+</body>
+</html>

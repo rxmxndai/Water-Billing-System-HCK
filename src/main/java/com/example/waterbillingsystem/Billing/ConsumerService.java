@@ -13,24 +13,34 @@ public class ConsumerService {
     @Autowired
     private ConsumerRepository repo;
 
-
     public List<Consumer> listAll() {
         return (List<Consumer>) repo.findAll();
 
     }
 
-    public void save (Consumer user) {
 
-        repo.save(user);
+    public void save(Consumer consumer) {
+
+        double x, unit, rate, discount, tax;
+        unit = consumer.getUnit();
+        rate = consumer.getRate();
+        discount = consumer.getDiscount();
+        tax = (consumer.getTax() * (unit * rate) ) / 100;
+
+        x = (unit*rate) - discount + tax;
+
+        consumer.setTotal(x);
+
+        repo.save(consumer);
 
     }
 
-    public Consumer get(Integer id) throws ConsumerNotFoundException{
+    public Consumer get(Integer id) throws ConsumerNotFoundException {
         Optional<Consumer> result = repo.findById(id);
-        if(result.isPresent()) {
+        if (result.isPresent()) {
             return result.get();
         }
-        throw new ConsumerNotFoundException("Could not find users with ID " + id);
+        throw new ConsumerNotFoundException("Could not find consumer with ID " + id);
     }
 
 
@@ -44,4 +54,7 @@ public class ConsumerService {
         repo.deleteById(id);
     }
 
+
 }
+
+
