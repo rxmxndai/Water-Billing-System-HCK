@@ -3,30 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Water Billing System : Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
-<body class="bg-info">
-<h1>Welcome to Water Billing System</h1>
-<h2>Login Form</h2>
-<!--/*@thymesVar id="loginForm" type=""*/-->
-<form th:action="@{/login}" th:object="${loginForm}" method="post">
-    <div class="container">
+<body>
+<h1 class="text-center">Welcome to Water Billing System</h1>
+<h2 class="text-center">Login Form</h2>
+<div class="text-center m-4"><h2> [[${pageTitle}]] </h2> </div>
 
-<!--        <div class="logo1">  <img src="../static/image/echllan1.png" th:src="@{image/echallan1.png}"/> </div>&lt;!&ndash;&#45;&#45;insert image in html&#45;&#45;&ndash;&gt;-->
 
-        <div class="project1"> Water Billing System</div>
+<form  method="post"
+      style="max-width: 400px; margin:0 auto;">
 
-        <form method="post"><!------form created--->
+    <input type="hidden"/>
+<!--Main-->
+    <div class="border border-secondary rounded p-3">
 
-            <div class="f-field"> <span class="far "></span> <input type="text" name="userName" id="user_Name" placeholder="Username"> </div>
 
-            <div class="f-field"> <span class="fas "></span> <input type="password" name="password" id="pwd1" placeholder="Password"></div>
+<!--        NAME-->
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label"> Username: </label>
+            <div class= "col-sm-8">
+                <input type="text"   class="form-control" name="username" required minlength="4" maxlength="25"/>
+            </div>
+        </div>
 
-            <button class="bttn1">Login</button>
-        </form>
+<!--        Password-->
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label"> Password: </label>
+            <div class= "col-sm-8">
+                <input type="password"  class="form-control" name="password" required minlength="4" maxlength="20"/>
+            </div>
+        </div>
+
+
+
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary m-2"> Login </button>
+
+        </div>
 
     </div>
-
-
 </form>
 </body>
 </html>
