@@ -15,7 +15,7 @@ public class Consumer {
     private String contacts;
     @Column(nullable = false, unique = true, length = 40)
     private String email;
-    @Column(length=20, nullable = false)
+    @Column(length=40, nullable = false)
     private String password;
     @Column(length=40, nullable = false)
     private String province;
