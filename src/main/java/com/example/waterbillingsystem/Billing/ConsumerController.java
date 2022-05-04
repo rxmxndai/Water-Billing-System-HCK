@@ -98,14 +98,22 @@ public class ConsumerController {
 
     }
 
+    @GetMapping("/consumer/billing/null")
+    public String errorMsg1( RedirectAttributes rr) throws ConsumerNotFoundException {
+        rr.addFlashAttribute("message", "Please Search for a consumer before editing bill");
+        return "redirect:/admin/dash";
+    }
+    
+    @GetMapping("/consumer/invoice/null")
+    public String errorMsg2( RedirectAttributes rr) throws ConsumerNotFoundException {
+        rr.addFlashAttribute("message", "Please Search for a consumer before checking invoice");
+        return "redirect:/admin/dash";
+    }
+
+
 
     @GetMapping("/consumer/billing/{id}")
     public String showEditBillinghForm(@PathVariable("id") Integer id, Model model, RedirectAttributes rr) {
-        if (id == null) {
-            rr.addFlashAttribute("message", "Please Search for a consumer first");
-            return "Dashboard";
-        }
-        else {
             try {
                 Consumer consumer = service.get(id);
                 model.addAttribute("consumer", consumer);
@@ -116,7 +124,7 @@ public class ConsumerController {
                 rr.addFlashAttribute("message", e.getMessage());
                 return "redirect:/consumer/details";
             }
-        }
+
 
     }
 
@@ -143,16 +151,7 @@ public class ConsumerController {
         return "BillingDetails";
     }
 
-    @GetMapping("/consumer/billing/null")
-    public String errorMsg1( RedirectAttributes rr) throws ConsumerNotFoundException {
-            rr.addFlashAttribute("message", "Please Search for a consumer before editing bill");
-            return "redirect:/admin/dash";
-    }
-    @GetMapping("/consumer/invoice/null")
-    public String errorMsg2( RedirectAttributes rr) throws ConsumerNotFoundException {
-        rr.addFlashAttribute("message", "Please Search for a consumer before checking invoice");
-        return "redirect:/admin/dash";
-    }
+
 
     @GetMapping("/consumer/invoice/{id}")
     public String showInvoice( @PathVariable("id") Integer id, Model model, RedirectAttributes rr) throws ConsumerNotFoundException {
@@ -174,4 +173,8 @@ public class ConsumerController {
 
 
     }
+
+
+
+
 }
