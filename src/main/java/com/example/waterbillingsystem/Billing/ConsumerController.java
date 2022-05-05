@@ -31,6 +31,20 @@ public class ConsumerController {
         return "Dashboard";
     }
 
+    @GetMapping("/consumer/dash/{id}")
+    public String showConsumerDash(@PathVariable("id") Integer id, Model model, RedirectAttributes rr) {
+        try {
+            Consumer consumer = service.get(id);
+            model.addAttribute("consumer", consumer);
+            model.addAttribute("provinceList", provinceList);
+            model.addAttribute("pageTitle", "Edit Consumer details (ID: " + id + ")");
+            return "ConsumerDashboard";
+        } catch (ConsumerNotFoundException e) {
+            rr.addFlashAttribute("message", e.getMessage());
+            return "redirect:/login";
+        }
+    }
+
     @PostMapping("/search")
     public String doSearch(@ModelAttribute("keyword") Consumer consumerdata, Model model, RedirectAttributes rr) throws ConsumerNotFoundException {
         try {
@@ -73,6 +87,35 @@ public class ConsumerController {
         return "consumerForm";
     }
 
+
+    @PostMapping("/mydetails/save")
+
+    public String saveMyDetails (Consumer consumer, Model model,  RedirectAttributes rr) {
+
+        service.save(consumer);
+
+        rr.addFlashAttribute("message", "Details changed Successfully");
+
+        return  "redirect:/consumer/dash/" + consumer.getId();
+    }
+
+
+
+    @GetMapping("/consumer/settings/{id}")
+    public String settingsForm(@PathVariable("id") Integer id, Model model, RedirectAttributes rr) {
+        try {
+            Consumer consumer = service.get(id);
+            model.addAttribute("consumer", consumer);
+            model.addAttribute("pageTitle", "Edit Consumer details (ID: " + id + ")");
+            return "ConsumerSettings";
+        } catch (ConsumerNotFoundException e) {
+            rr.addFlashAttribute("message", e.getMessage());
+            return "redirect:/consumer/details";
+        }
+    }
+
+
+
     @PostMapping("/consumer/save")
 
     public String saveConsumer (Consumer consumer, RedirectAttributes rr) {
@@ -84,6 +127,7 @@ public class ConsumerController {
 
         return  "redirect:/consumer/details";
     }
+
 
     @GetMapping("/consumer/viewIndividualDetail/{id}")
     public String showEditConsumerForm(@PathVariable("id") Integer id, Model model, RedirectAttributes rr) {
@@ -156,11 +200,6 @@ public class ConsumerController {
     @GetMapping("/consumer/invoice/{id}")
     public String showInvoice( @PathVariable("id") Integer id, Model model, RedirectAttributes rr) throws ConsumerNotFoundException {
 
-        if (Integer.toString(id) == "null") {
-            rr.addFlashAttribute("message", "Please Search for a consumer first");
-            return "Dashboard";
-        }
-        else {
             try {
                 Consumer consumer = service.get(id);
                 model.addAttribute("consumer", consumer);
@@ -169,10 +208,21 @@ public class ConsumerController {
                 rr.addFlashAttribute("message", e.getMessage());
                 return "redirect:/consumer/printbill";
             }
-        }
-
-
     }
+
+    @GetMapping("/consumer/myinvoice/{id}")
+    public String showMyInvoice( @PathVariable("id") Integer id, Model model, RedirectAttributes rr) throws ConsumerNotFoundException {
+
+        try {
+            Consumer consumer = service.get(id);
+            model.addAttribute("consumer", consumer);
+            return "singleConsumerInvoice";
+        } catch (ConsumerNotFoundException e) {
+            rr.addFlashAttribute("message", "Your login do not match");
+            return "redirect:/login";
+        }
+    }
+
 
 
 

@@ -39,7 +39,7 @@
         <table width="100%" style="background: #f9f9f9; border-bottom: 1px solid #eee; border-collapse: collapse; color: #999;">
           <tbody>
           <tr>
-            <td width="50%" style="padding: 20px;"><label th:field="*{total}" style="color: #333; font-size: 24px; ">[[${consumer.name}]]</label></td>
+            <td class="h1" width="50%" style="padding: 20px;"><label th:field="*{total}" style="color: #333; font-size: 24px; ">[[${consumer.name}]]</label></td>
             <td align="right" width="50%" style="padding: 20px;">Thank You</td>
           </tr>
           </tbody>
@@ -86,11 +86,11 @@
                 </tr>
                 <tr>
                   <td style="padding: 5px 0;">Discount</td>
-                  <td align="right" style="padding: 5px 0;" th:field="*{discount}">Rs.[[${consumer.discount}]]</td>
+                  <td align="right" style="padding: 5px 0;" th:field="*{discount}">[[${consumer.discount}]]</td>
                 </tr>
                 <tr>
                   <td style="border-bottom: 2px solid #000; border-top: 2px solid #000; font-weight: bold; padding: 5px 0;">Total</td>
-                  <td align="right" style="border-bottom: 2px solid #000; border-top: 2px solid #000; font-weight: bold; padding: 5px 0;" th:field="*{total}">[[${consumer.total}]]</td>
+                  <td align="right" style="border-bottom: 2px solid #000; border-top: 2px solid #000; font-weight: bold; padding: 5px 0;" th:field="*{total}">Rs. [[${consumer.total}]]</td>
                 </tr>
                 </tbody>
               </table>
