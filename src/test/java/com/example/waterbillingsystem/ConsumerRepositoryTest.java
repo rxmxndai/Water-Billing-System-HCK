@@ -11,6 +11,8 @@ import org.springframework.test.annotation.Rollback;
 
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -38,9 +40,9 @@ public class ConsumerRepositoryTest {
         // SAVE DETAILS
         Consumer savedConsumer = repo.save(user);
         // DATABASE
-        Assertions.assertThat(savedConsumer).isNotNull();
+        assertThat(savedConsumer).isNotNull();
         // checks for duplicate ID
-        Assertions.assertThat(savedConsumer.getId()).isGreaterThan(0);
+        assertThat(savedConsumer.getId()).isGreaterThan(0);
     }
 
 
@@ -49,7 +51,7 @@ public class ConsumerRepositoryTest {
 
         Iterable<Consumer> consumers = repo.findAll();
 
-        Assertions.assertThat(consumers).hasSizeGreaterThan(0);
+        assertThat(consumers).hasSizeGreaterThan(0);
 
         for (Consumer consumer : consumers) {
             System.out.println(consumer);
@@ -68,7 +70,7 @@ public class ConsumerRepositoryTest {
         repo.save(consumer);
 
         Consumer updatedConsumer = repo.findById(userId).get();
-        Assertions.assertThat(updatedConsumer.getPassword()).isEqualTo("Roman Karki");
+        assertThat(updatedConsumer.getPassword()).isEqualTo("Roman Karki");
 
     }
 
@@ -77,7 +79,7 @@ public class ConsumerRepositoryTest {
         Integer userId = 2;
         Optional<Consumer> optionalConsumer = repo.findById(userId);
 
-        Assertions.assertThat(optionalConsumer).isPresent();
+        assertThat(optionalConsumer).isPresent();
         System.out.println(optionalConsumer.get());
     }
 
@@ -88,7 +90,15 @@ public class ConsumerRepositoryTest {
         repo.deleteById(userId);
 
         Optional<Consumer> optionalConsumer = repo.findById(userId);
-        Assertions.assertThat(optionalConsumer).isNotPresent();
+        assertThat(optionalConsumer).isNotPresent();
+    }
+    @Test
+    public void testFindUserByName(){
+        String name="Saugat Karki";
+        Consumer consumer=repo.findByName(name);
+        assertThat(consumer).isNotNull();
+
+
     }
 
 }
