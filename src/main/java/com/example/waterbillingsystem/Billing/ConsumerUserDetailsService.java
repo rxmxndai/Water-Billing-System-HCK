@@ -11,6 +11,10 @@ public class ConsumerUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        return null;
+        Consumer consumer=repo.findByName(name);
+        if(consumer==null){
+            throw new UsernameNotFoundException("User not found");
+        }
+        return new ConsumerUserDetails(consumer);
     }
 }
