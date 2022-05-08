@@ -1,6 +1,7 @@
 package com.example.waterbillingsystem.Billing;
 
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -8,13 +9,9 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 
-public interface ConsumerRepository extends CrudRepository<Consumer, Integer> {
+public interface ConsumerRepository extends JpaRepository<Consumer, Integer> {
+    @Query("SELECT u FROM Consumer  u WHERE u.name=?1")
+    Consumer findByName(String name);
 
-    Long countById(Integer id);
-
-//    @Query("SELECT p FROM Consumer p WHERE p.name LIKE %?1%")
-//    public List<Consumer> findAll(String keyword);
-
-
-
+    Integer countById(Integer id);
 }
