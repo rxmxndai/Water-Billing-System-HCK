@@ -1,12 +1,18 @@
 package com.example.waterbillingsystem.Billing;
 
+import com.lowagie.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -203,7 +209,7 @@ public class ConsumerController {
             try {
                 Consumer consumer = service.get(id);
                 model.addAttribute("consumer", consumer);
-                return "Invoice";
+                return "innvoicevoice";
             } catch (ConsumerNotFoundException e) {
                 rr.addFlashAttribute("message", e.getMessage());
                 return "redirect:/consumer/printbill";
@@ -221,6 +227,13 @@ public class ConsumerController {
             rr.addFlashAttribute("message", "Your login do not match");
             return "redirect:/login";
         }
+    }
+
+
+    @GetMapping("/invoice/export")
+    public void exportToPDF() throws DocumentException, IOException {
+
+
     }
 
 
