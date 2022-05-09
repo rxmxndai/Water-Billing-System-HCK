@@ -1,6 +1,8 @@
 package com.example.waterbillingsystem.Billing;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +23,10 @@ public class ConsumerService {
 
     public void save(Consumer consumer) {
 
+        BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+        String encodePassword=encoder.encode(consumer.getPassword());
+
+        consumer.setPassword(encodePassword);
         double x, unit, rate, discount, tax;
         unit = consumer.getUnit();
         rate = consumer.getRate();
@@ -34,6 +40,14 @@ public class ConsumerService {
         repo.save(consumer);
 
     }
+
+
+    public Consumer get(String name) throws ConsumerNotFoundException {
+        Consumer result = repo.findByNam(name);
+        return result;
+    }
+
+
 
     public Consumer get(Integer id) throws ConsumerNotFoundException {
         Optional<Consumer> result = repo.findById(id);

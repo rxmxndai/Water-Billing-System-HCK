@@ -3,15 +3,19 @@ package com.example.waterbillingsystem.Billing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Role;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.sql.DataSource;
+import java.util.Collection;
+import java.util.Set;
 
 
 @Configuration
@@ -42,17 +46,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider());
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/login").authenticated()
+                .antMatchers("/consumer").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .usernameParameter("name")
-                .defaultSuccessUrl("/consumer/dash/id")
-                .permitAll()
+                    .usernameParameter("name")
+                    .defaultSuccessUrl("/consumer/welcome"  )
+                    .permitAll()
                 .and()
-                .logout().logoutSuccessUrl("/").permitAll();
+                .logout().permitAll()
+                .and();
     }
 }

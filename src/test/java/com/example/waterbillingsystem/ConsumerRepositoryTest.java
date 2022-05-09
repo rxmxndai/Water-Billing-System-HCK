@@ -94,7 +94,7 @@ public class ConsumerRepositoryTest {
     }
     @Test
     public void testFindUserByName(){
-        String name="Saugat Karki";
+        String name="Rojan Karki";
         Consumer consumer=repo.findByName(name);
         assertThat(consumer).isNotNull();
 

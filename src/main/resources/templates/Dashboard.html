@@ -10,11 +10,12 @@
 
 <body class="bg-info">
 
-<!--navigation top-->
+
+<div class="h5 d-flex navbar bg-dark text-light">
 
   <nav class="navbar navbar-expand-md bg-dark navbar-dark h5">
     <!-- Brand -->
-    <a class="navbar-brand" th:href="@{/admin/dash}"> Home </a>
+    <a class="navbar-brand " th:href="@{/admin/dash}"> Home </a>
 
     <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -25,9 +26,21 @@
         <li class="nav-item">
           <a class="nav-link" th:href="@{/consumer/details}" > Consumers  </a>
         </li>
+
       </ul>
     </div>
   </nav>
+
+
+  <div class="ml-auto ">
+    <a th:href="@{/login}" class="btn btn-info btn-lg ml-auto p-2 bd-highlight">
+      <span class="glyphicon glyphicon-log-out"></span>
+      Log out
+    </a>
+  </div>
+</div>
+
+
 
 
 
@@ -54,7 +67,7 @@
     <h1 class="text-light p-2 "> Search for consumer Details </h1>
 
     <form class="form-inline p-2"  th:action="@{/search}" th:object="${consumer}" method="post" >
-      <input class="form-control input-lg" th:field="*{id}" type="text"  placeholder="Search Consumer ID"/>
+      <input required class="form-control input-lg" th:field="*{id}" type="text"  placeholder="Search Consumer ID"/>
       &nbsp
       <button class="form-control mr-sm-2 btn-lg btn-success" type="submit">Search</button> </td>
       &nbsp
@@ -126,9 +139,6 @@
 
     </div>
   </form>
-
-
-
 
 
 </body>

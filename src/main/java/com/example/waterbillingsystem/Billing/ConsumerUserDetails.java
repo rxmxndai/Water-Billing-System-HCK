@@ -1,11 +1,17 @@
 package com.example.waterbillingsystem.Billing;
 
+import org.springframework.context.annotation.Role;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Set;
 
 public class ConsumerUserDetails implements UserDetails {
+    
+
     private Consumer consumer;
 
     public ConsumerUserDetails(Consumer consumer) {
@@ -14,7 +20,14 @@ public class ConsumerUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+//        Set<Consumer> roles = consumer.getConsumer();
+
         return null;
+    }
+
+
+    public Integer getId () {
+        return consumer.getId();
     }
 
     @Override

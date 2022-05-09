@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Water Billing System</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+
+
+
+<body class="bg-info" th:object="${consumer}">
+
+<!-- ----**************************************************************************---->
+<div class="alert alert-success text-center h3" th:if="${message}">
+    [[${message}]]
+</div>
+
+
+<h2  class = " text-light  container p-2 mb-auto d-flex justify-content-center"> Welcome to Jalkali Water Supply  </h2>
+
+<h1 class = " text-light  container p-5 mb-auto d-flex justify-content-center">  [[${#request.remoteUser}]]</h1>
+
+
+
+<!--    Add consumer link -->
+<div class = "d-flex justify-content-center">
+    <a class = "text-light  h1 text-center p-3 mb-2 bg-primary text-white border border-secondary rounded p-3"
+       th:href="@{'/consumer/dash/'+ ${#request.userPrincipal.principal.getId} }"> CLICK HERE TO CONTINUE</a>
+</div>
+
+
+
+
+</body>
+</html>

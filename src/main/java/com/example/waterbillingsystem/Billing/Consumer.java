@@ -1,5 +1,6 @@
 package com.example.waterbillingsystem.Billing;
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "consumers")
@@ -15,7 +16,7 @@ public class Consumer {
     private String contacts;
     @Column(nullable = false, unique = true, length = 40)
     private String email;
-    @Column(length=40, nullable = false)
+    @Column(length=200, nullable = false)
     private String password;
     @Column(length=40, nullable = false)
     private String province;
@@ -137,4 +138,6 @@ public class Consumer {
                 ", total=" + total +
                 '}';
     }
+
+
 }

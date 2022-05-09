@@ -2,6 +2,7 @@ package com.example.waterbillingsystem.Billing;
 
 import com.lowagie.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -51,15 +52,24 @@ public class ConsumerController {
         }
     }
 
+
+
     @PostMapping("/search")
     public String doSearch(@ModelAttribute("keyword") Consumer consumerdata, Model model, RedirectAttributes rr) throws ConsumerNotFoundException {
-        try {
-            Consumer consumer = service.get(consumerdata.getId());
-            model.addAttribute("consumer", consumer);
-            return "Dashboard";
-        } catch (ConsumerNotFoundException e) {
-            rr.addFlashAttribute("message", e.getMessage());
+
+        if (consumerdata.getId() == null) {
+            rr.addFlashAttribute("message", "Search field is empty!");
             return "redirect:/admin/dash";
+        }
+        else {
+            try {
+                Consumer consumer = service.get(consumerdata.getId());
+                model.addAttribute("consumer", consumer);
+                return "Dashboard";
+            } catch (ConsumerNotFoundException e) {
+                rr.addFlashAttribute("message", e.getMessage());
+                return "redirect:/admin/dash";
+            }
         }
     }
 
@@ -230,14 +240,15 @@ public class ConsumerController {
     }
 
 
-    @GetMapping("/invoice/export")
-    public void exportToPDF() throws DocumentException, IOException {
 
-
+    @GetMapping("/")
+    public String error404() {
+        return "hello";
     }
 
-
-
-
+    @GetMapping("/consumer/welcome")
+    public String welcome() {
+        return "Welcome";
+    }
 
 }

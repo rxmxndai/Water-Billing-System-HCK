@@ -8,26 +8,37 @@
 
 
 
-<body class="bg-info">
+<body class="bg-info " >
 
 <!--navigation top-->
+<div class="h5 d-flex navbar bg-dark text-light" th:object="${consumer}">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark h5" >
+        <!-- Brand -->
+        <a class="navbar-brand" th:href="@{/admin/dash}"> Home </a>
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark h5" th:object="${consumer}">
-    <!-- Brand -->
-    <a class="navbar-brand" th:href="@{/admin/dash}"> Home </a>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/consumer/myinvoice/' + ${consumer.id}}"> Billing </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/consumer/settings/' + ${consumer.id}}"> My Details  </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{'/consumer/myinvoice/' + ${consumer.id}}"> Billing </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{'/consumer/settings/' + ${consumer.id}}"> My Details  </a>
-            </li>
-        </ul>
+    <div class="ml-auto p-2 flex-row"  th:object="${consumer}">
+        <a class=" ml-auto p-2 bd-highlight">
+            [[${consumer.name}]]
+        </a>
+        <a th:href="@{/login}" class="btn btn-info btn-lg ml-auto p-2 bd-highlight">
+            Log out
+        </a>
     </div>
-</nav>
+
+</div>
 
 
 
@@ -55,7 +66,7 @@
 
 
 
-        <h1 class="p-3 "> [[${consumer.name}]]  </h1>
+        <h1 class="p-3 h1"> [[${consumer.name}]]  </h1>
 
         <div class="form-group row">
             <label class="col-sm-4 col-form-label"> Contacts </label>
@@ -99,10 +110,6 @@
         </div>
     </div>
 </form>
-
-
-
-
 
 </body>
 </html>
