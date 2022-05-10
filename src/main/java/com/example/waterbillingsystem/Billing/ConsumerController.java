@@ -1,6 +1,7 @@
 package com.example.waterbillingsystem.Billing;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -224,7 +225,24 @@ public class ConsumerController {
     }
 
 
+    @GetMapping("/login")
+    public String LoginPage() {
+
+        return "loginpage";
+    }
+
+    @PostMapping("")
+    public String Password(Consumer consumer){
+        BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
+        String encodedPassword=encoder.encode(consumer.getPassword());
+        consumer.setPassword(encodedPassword);
+        return "";
+    }
 
 
+    @GetMapping("/welcome")
+    public String welconmePage() {
 
+        return "Welcome";
+    }
 }
